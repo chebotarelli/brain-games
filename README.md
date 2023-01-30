@@ -3,19 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/3f8ba94511f062680711/maintainability)](https://codeclimate.com/github/chebotarelli/frontend-project-44/maintainability)
 
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="asciinema-player.css" />
-</head>
-<body>
-  <div id="player"></div>
-  <script src="asciinema-player.min.js"></script>
-  <script>
-    AsciinemaPlayer.create(
-      '555880.cast',
-      document.getElementById('player'),
-      { cols: 105, rows: 51 }
-    );
-  </script>
-</body>
-</html>
+[![asciicast](https://asciinema.org/a/d7adF84vIrKYTuhrxSHAexNah.svg)](https://asciinema.org/a/d7adF84vIrKYTuhrxSHAexNah)
