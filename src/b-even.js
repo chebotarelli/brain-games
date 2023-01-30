@@ -5,32 +5,39 @@ function getRandomInt(min, max) {
 }
 
 const brainEven = () => {
-  // head
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  // body
-  let randomNumber = getRandomInt(1, 99);
-  console.log(`Question: ${randomNumber}`);
-  let answer = readlineSync.question('Your answer:');
-  // logic ever or odd
+
   let contrast = '';
-  if (randomNumber % 2 === 0) {
-    console.log('number is even (yes)');
-    contrast = 'yes';
-  } else {
-    console.log('number is odd (no)');
-    contrast = 'no';
+  let result = '';
+  let i = 1;
+  while (i <= 4) {
+    const randomNumber = getRandomInt(1, 99);
+    console.log(`Question: ${randomNumber}`);
+    const answer = readlineSync.question('Your answer:');
+    if (randomNumber % 2 === 0) {
+      contrast = 'yes';
+    } else {
+      contrast = 'no';
+    }
+
+    if (answer !== contrast && contrast === 'yes') {
+      result = `'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, ${name}!`;
+      break;
+    } else if (answer !== contrast && contrast === 'no') {
+      result = `'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`;
+      break;
+    } else {
+      console.log('Correct!');
+      result = `Congratulations, ${name}!`;
+    }
+
+    i += i;
   }
-  // comparison q & a
-  if (answer === contrast) {
-    console.log('Correct!');
-  } else {
-    console.log('Lol!');
-  }
-  // other
-  return console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
+
+  return console.log(result);
 };
 
 export default brainEven;
