@@ -18,7 +18,7 @@
   },
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "binn/brain-even.js"
+    "brain-even": "bin/brain-even.js"
   },
   "homepage": "https://github.com/chebotarelli/frontend-project-44#readme",
   "dependencies": {
