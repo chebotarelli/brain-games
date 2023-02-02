@@ -36,18 +36,15 @@ const brainCalc = () => {
         answer = null;
     }
 
-    console.log(answer); // del
+    const userAnswer = Number(readlineSync.question('Your answer: '));
 
-    const userAnswer = readlineSync.question('Your answer:');
-
-    if (answer === userAnswer) {
-      console.log('Correct!');
-      result = `Congratulations, ${name}!`;
+    if (answer !== userAnswer) {
+      result = `${userAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`;
       break;
     } else {
-      result = `${userAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`;
+      console.log('Correct!');
+      result = `Congratulations, ${name}!`;
     }
-
     i += i;
   }
 
