@@ -1,31 +1,39 @@
 import readlineSync from 'readline-sync';
 
+// func 1 - random numbers generator
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const brainEven = () => {
+// func 2 - standart user hello
+const helloUser = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+  return name;
+};
+
+// func 3 - calculation this game
+function evenNumber(questNumber) {
+  return questNumber % 2 === 0 ? 'yes' : 'no';
+}
+
+// main func - base this game
+const brainEven = () => {
+  const name = helloUser();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let result = '';
   let i = 1;
-  while (i <= 4) {
-    const randomNumber = getRandomInt(1, 99);
-    console.log(`Question: ${randomNumber}`);
-    const answer = readlineSync.question('Your answer:');
-    if (randomNumber % 2 === 0) {
-      contrast = 'yes';
-    } else {
-      contrast = 'no';
-    }
 
-    if (answer !== contrast && contrast === 'yes') {
-      result = `'no' is wrong answer ;(. Correct answer was 'yes'.\nLet's try again, ${name}!`;
-      break;
-    } else if (answer !== contrast && contrast === 'no') {
+  while (i <= 4) {
+    const questNumber = getRandomInt(1, 99);
+    console.log(`Question: ${questNumber}`);
+
+    const userAnswer = readlineSync.question('Your answer:');
+    const trueAnswer = evenNumber(questNumber);
+
+    if (userAnswer !== trueAnswer) {
       result = `'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`;
       break;
     } else {
