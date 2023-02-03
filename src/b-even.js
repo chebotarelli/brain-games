@@ -10,7 +10,6 @@ const brainEven = () => {
   console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  let contrast = '';
   let result = '';
   let i = 1;
   while (i <= 4) {
