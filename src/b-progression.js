@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import readlineSync from 'readline-sync';
 
 // func 1 - random numbers generator
@@ -14,30 +13,29 @@ const helloUser = () => {
   return name;
 };
 
-// func 3 - calculation this game
-function gcd(numOne, numTwo) {
-  while (numTwo) {
-    const divider = numTwo;
-    numTwo = numOne % numTwo;
-    numOne = divider;
-  }
-  return numOne;
-}
-
 // main func - base this game
 const brainProgression = () => {
   const name = helloUser();
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log('What number is missing in the progression?');
 
   let result;
   let i = 1;
 
   while (i <= 4) {
-    const numOne = getRandomInt(1, 10);
-    const numTwo = getRandomInt(1, 10);
-    console.log(`Question: ${numOne} ${numTwo}`);
+    const progression = [];
+    let startNum = getRandomInt(1, 20);
+    const stepArr = getRandomInt(2, 5);
+    const questNum = getRandomInt(2, 9);
+
+    for (let m = 0; m < 10; m += 1) {
+      progression.push(startNum);
+      startNum += stepArr;
+    }
+
+    const trueAnswer = progression[questNum];
+    progression[questNum] = '..';
+    console.log(`Question: ${progression.join(' ')}`);
     const userAnswer = Number(readlineSync.question('Your answer: '));
-    const trueAnswer = gcd(numOne, numTwo);
 
     if (trueAnswer !== userAnswer) {
       result = `${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${name}!`;
