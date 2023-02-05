@@ -17,8 +17,10 @@ const helloUser = () => {
 function gcd(numOne, numTwo) {
   while (numTwo) {
     const divider = numTwo;
-    numTwo = numOne % numTwo;
-    numOne = divider;
+    let nOne = numOne;
+    let nTwo = numTwo;
+    nTwo = nOne % nTwo;
+    nOne = divider;
   }
   return numOne;
 }
