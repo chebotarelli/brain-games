@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import readlineSync from 'readline-sync';
 
 // func 1 - random numbers generator
@@ -17,10 +18,8 @@ const helloUser = () => {
 function gcd(numOne, numTwo) {
   while (numTwo) {
     const divider = numTwo;
-    let nOne = numOne;
-    let nTwo = numTwo;
-    nTwo = nOne % nTwo;
-    nOne = divider;
+    numTwo = numOne % numTwo;
+    numOne = divider;
   }
   return numOne;
 }
