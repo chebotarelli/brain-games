@@ -2,4 +2,4 @@
 
 import brainPrime from '../src/b-prime.js';
 
-brainPrime();
+console.log(brainPrime());
