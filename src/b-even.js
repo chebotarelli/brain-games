@@ -1,17 +1,6 @@
 import readlineSync from 'readline-sync';
-
-// func 1 - random numbers generator
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-// func 2 - standart user hello
-const helloUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
+import getRandomInt from './getRandomInt.js';
+import helloUser from './cli.js';
 
 // func 3 - calculation this game
 function evenNumber(questNumber) {
@@ -23,10 +12,10 @@ const brainEven = () => {
   const name = helloUser();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  let result = '';
-  let i = 1;
+  let result;
+  let i = 0;
 
-  while (i <= 4) {
+  while (i <= 2) {
     const questNumber = getRandomInt(1, 99);
     console.log(`Question: ${questNumber}`);
 
@@ -41,7 +30,7 @@ const brainEven = () => {
       result = `Congratulations, ${name}!`;
     }
 
-    i += i;
+    i += 1;
   }
 
   return console.log(result);

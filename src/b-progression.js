@@ -1,17 +1,6 @@
 import readlineSync from 'readline-sync';
-
-// func 1 - random numbers generator
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-// func 2 - standart user hello
-const helloUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
+import getRandomInt from './getRandomInt.js';
+import helloUser from './cli.js';
 
 // main func - base this game
 const brainProgression = () => {
@@ -19,9 +8,9 @@ const brainProgression = () => {
   console.log('What number is missing in the progression?');
 
   let result;
-  let i = 1;
+  let i = 0;
 
-  while (i <= 4) {
+  while (i <= 2) {
     const progression = [];
     let startNum = getRandomInt(1, 20);
     const stepArr = getRandomInt(2, 5);
@@ -45,7 +34,7 @@ const brainProgression = () => {
       result = `Congratulations, ${name}!`;
     }
 
-    i += i;
+    i += 1;
   }
 
   return console.log(result);

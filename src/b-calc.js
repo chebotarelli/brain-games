@@ -1,19 +1,14 @@
 import readlineSync from 'readline-sync';
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+import getRandomInt from './getRandomInt.js';
+import helloUser from './cli.js';
 
 const brainCalc = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-
+  const name = helloUser();
   console.log('What is the result of the expression?');
 
-  let result = '';
-  let i = 1;
-  while (i <= 4) {
+  let result;
+  let i = 0;
+  while (i <= 2) {
     const operandOne = getRandomInt(1, 10);
     const operandTwo = getRandomInt(1, 10);
     const operatorNum = getRandomInt(0, 3);
@@ -21,31 +16,31 @@ const brainCalc = () => {
     const usOperator = operatorArray[operatorNum];
     console.log(`Question: ${operandOne} ${usOperator} ${operandTwo}`);
 
-    let answer = 0;
+    let trueAnswer;
     switch (usOperator) {
       case '+':
-        answer = operandOne + operandTwo;
+        trueAnswer = operandOne + operandTwo;
         break;
       case '-':
-        answer = operandOne - operandTwo;
+        trueAnswer = operandOne - operandTwo;
         break;
       case '*':
-        answer = operandOne * operandTwo;
+        trueAnswer = operandOne * operandTwo;
         break;
       default:
-        answer = null;
+        trueAnswer = null;
     }
 
     const userAnswer = Number(readlineSync.question('Your answer: '));
 
-    if (answer !== userAnswer) {
-      result = `${userAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${name}!`;
+    if (trueAnswer !== userAnswer) {
+      result = `${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${name}!`;
       break;
     } else {
       console.log('Correct!');
       result = `Congratulations, ${name}!`;
     }
-    i += i;
+    i += 1;
   }
 
   return console.log(result);

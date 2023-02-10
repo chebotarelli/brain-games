@@ -1,18 +1,7 @@
 /* eslint-disable no-param-reassign */
 import readlineSync from 'readline-sync';
-
-// func 1 - random numbers generator
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-// func 2 - standart user hello
-const helloUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
+import getRandomInt from './getRandomInt.js';
+import helloUser from './cli.js';
 
 // func 3 - calculation this game
 function gcd(numOne, numTwo) {
@@ -30,9 +19,9 @@ const brainGCD = () => {
   console.log('Find the greatest common divisor of given numbers.');
 
   let result;
-  let i = 1;
+  let i = 0;
 
-  while (i <= 4) {
+  while (i <= 2) {
     const numOne = getRandomInt(1, 10);
     const numTwo = getRandomInt(1, 10);
     console.log(`Question: ${numOne} ${numTwo}`);
@@ -47,7 +36,7 @@ const brainGCD = () => {
       result = `Congratulations, ${name}!`;
     }
 
-    i += i;
+    i += 1;
   }
 
   return console.log(result);

@@ -1,17 +1,7 @@
 import readlineSync from 'readline-sync';
-
-// func 1 - random numbers generator
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-// func 2 - standart user hello
-const helloUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
+import getRandomInt from './getRandomInt.js';
+import helloUser from './cli.js';
+// import checkCondition from './checkCondition.js';
 
 // func 3 - prime number
 function isPrime(num) {
@@ -28,15 +18,17 @@ const brainPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   let result;
-  let i = 1;
+  let i = 0;
 
-  while (i <= 4) {
+  while (i <= 2) {
     const startNum = getRandomInt(1, 20);
 
     const trueAnswer = isPrime(startNum);
 
     console.log(`Question: ${startNum}`);
     const userAnswer = readlineSync.question('Your answer: ');
+
+    // result = checkCondition(trueAnswer, userAnswer, name);
 
     if (trueAnswer !== userAnswer) {
       result = `${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${name}!`;
@@ -46,10 +38,10 @@ const brainPrime = () => {
       result = `Congratulations, ${name}!`;
     }
 
-    i += i;
+    i += 1;
   }
 
-  return console.log(result);
+  return result;
 };
 
 export default brainPrime;
