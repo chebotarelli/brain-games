@@ -9,14 +9,15 @@ function userQuestion() {
   return userQuestionResult;
 }
 
-// function isPrime(userQuestion) {
+// function isPrime(userQuestion)
 function isPrime(userQuestionResult) {
-  let result;
-  if (userQuestionResult === 1) result = 'no';
-  for (let i = 2, s = Math.sqrt(userQuestionResult); i <= s; i += 1) {
-    result = userQuestionResult % i === 0 ? 'no' : 'yes';
+  if (userQuestionResult <= 1) return 'no';
+  if (userQuestionResult % 2 === 0 && userQuestionResult > 2) return 'no';
+  const s = Math.sqrt(userQuestionResult);
+  for (let i = 3; i <= s; i += 2) {
+    if (userQuestionResult % i === 0) return 'no';
   }
-  return result;
+  return 'yes';
 }
 
 export { gameRules, userQuestion, isPrime };
