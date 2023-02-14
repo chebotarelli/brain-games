@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import readlineSync from 'readline-sync';
 import getRandomInt from './getRandomInt.js';
-import helloUser from './cli.js';
+import helloUser from './hello.js';
 
 // func 3 - calculation this game
 function gcd(numOne, numTwo) {

@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import getRandomInt from './getRandomInt.js';
-import helloUser from './cli.js';
+import helloUser from './hello.js';
 
 // main func - base this game
 const brainProgression = () => {
