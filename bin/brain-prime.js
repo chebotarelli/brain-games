@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import brainPrime from '../src/b-prime.js';
+import { gameRules, userQuestion, isPrime } from '../games/b-prime.js';
+import engine from '../src/index.js';
 
-console.log(brainPrime());
+console.log(engine(gameRules, userQuestion, isPrime));
