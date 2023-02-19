@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import brainProgression from '../src/b-progression.js';
+import { } from '../games/b-progression.js';
+import engine from '../src/index.js';
 
-brainProgression();
+console.log(engine());

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import brainEven from '../src/b-even.js';
+import { gameRules, userQuestion, isEven } from '../games/b-even.js';
+import engine from '../src/index.js';
 
-brainEven();
+console.log(engine(gameRules, userQuestion, isEven));

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import brainGCD from '../src/b-gcd.js';
+import { gameRules, userQuestion, isGCD } from '../games/b-gcd.js';
+import engine from '../src/index.js';
 
-brainGCD();
+console.log(engine(gameRules, userQuestion, isGCD));

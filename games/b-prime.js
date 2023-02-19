@@ -9,7 +9,6 @@ function userQuestion() {
   return userQuestionResult;
 }
 
-// function isPrime(userQuestion)
 function isPrime(userQuestionResult) {
   if (userQuestionResult <= 1) return 'no';
   if (userQuestionResult % 2 === 0 && userQuestionResult > 2) return 'no';
