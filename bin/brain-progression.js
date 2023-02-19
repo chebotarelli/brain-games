@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { } from '../games/b-progression.js';
+import { gameRules, userQuestion, missingNum } from '../games/b-progression.js';
 import engine from '../src/index.js';
 
-console.log(engine());
+console.log(engine(gameRules, userQuestion, missingNum));

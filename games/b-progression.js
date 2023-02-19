@@ -5,35 +5,28 @@ function gameRules() {
 }
 
 function userQuestion() {
-  const userQuestionResult = getRandomInt(1, 20);
-  return userQuestionResult;
-}
+  const progression = []; // do progress array
+  let startNum = getRandomInt(1, 20);
+  const stepArr = getRandomInt(2, 5);
+  const questNum = getRandomInt(2, 9);
 
-function isPrime(userQuestionResult) {
-  if (userQuestionResult <= 1) return 'no';
-  if (userQuestionResult % 2 === 0 && userQuestionResult > 2) return 'no';
-  const s = Math.sqrt(userQuestionResult);
-  for (let i = 3; i <= s; i += 2) {
-    if (userQuestionResult % i === 0) return 'no';
+  for (let i = 0; i < 10; i += 1) {
+    progression.push(startNum);
+    startNum += stepArr;
   }
-  return 'yes';
+
+  const trueAnswer = progression[questNum];
+  console.log('trueAnswer', typeof trueAnswer, trueAnswer);
+  progression[questNum] = '..';
+  console.log(`Question: ${progression.join(' ')}`);
+  return progression.join(' ');
 }
 
-export { gameRules, userQuestion, isPrime };
+// edit this function (calculate missing number or fix engine and fix all over games) =(
 
-// main func - base this game
-const brainProgression = () => {
-    const progression = []; // do progress array
-    let startNum = getRandomInt(1, 20); // start 
-    const stepArr = getRandomInt(2, 5); // step
-    const questNum = getRandomInt(2, 9);
+function missingNum() {
+  const answer = '15';
+  return answer;
+}
 
-    for (let i = 0; i < 10; i += 1) {
-      progression.push(startNum);
-      startNum += stepArr;
-    }
-
-    const trueAnswer = progression[questNum];
-    progression[questNum] = '..';
-    console.log(`Question: ${progression.join(' ')}`);
-    const userAnswer = Number(readlineSync.question('Your answer: '));
+export { gameRules, userQuestion, missingNum };
