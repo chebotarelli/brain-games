@@ -4,38 +4,36 @@ function gameRules() {
   console.log('What is the result of the expression?');
 }
 
-function userQuestion() {
+function gameLogic() {
+  const result = [];
   const operandOne = getRandomInt(1, 10);
   const operandTwo = getRandomInt(1, 10);
   const operatorNum = getRandomInt(0, 3);
   const operatorArray = ['*', '+', '-'];
   const usOperator = operatorArray[operatorNum];
-  const userQuestionResult = `${operandOne} ${usOperator} ${operandTwo}`;
-  return userQuestionResult;
-}
+  const questionForUser = `${operandOne} ${usOperator} ${operandTwo}`;
+  result.push(String(questionForUser));
 
-function calcResult(userQuestionResult) {
-  const questionArray = userQuestionResult.split(' ');
-
-  const operandOne = Number(questionArray[0]);
+  const questionArray = questionForUser.split(' ');
+  const operOne = Number(questionArray[0]);
   const operator = questionArray[1];
-  const operandTwo = Number(questionArray[2]);
-
+  const operTwo = Number(questionArray[2]);
   let trueAnswer;
   switch (operator) {
     case '+':
-      trueAnswer = operandOne + operandTwo;
+      trueAnswer = operOne + operTwo;
       break;
     case '-':
-      trueAnswer = operandOne - operandTwo;
+      trueAnswer = operOne - operTwo;
       break;
     case '*':
-      trueAnswer = operandOne * operandTwo;
+      trueAnswer = operOne * operTwo;
       break;
     default:
       trueAnswer = null;
   }
-  return String(trueAnswer);
+  result.push(String(trueAnswer));
+  return result;
 }
 
-export { gameRules, userQuestion, calcResult };
+export { gameRules, gameLogic };

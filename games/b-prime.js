@@ -4,11 +4,6 @@ function gameRules() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 }
 
-function userQuestion() {
-  const userQuestionResult = getRandomInt(1, 20);
-  return userQuestionResult;
-}
-
 function isPrime(userQuestionResult) {
   if (userQuestionResult <= 1) return 'no';
   if (userQuestionResult % 2 === 0 && userQuestionResult > 2) return 'no';
@@ -19,4 +14,13 @@ function isPrime(userQuestionResult) {
   return 'yes';
 }
 
-export { gameRules, userQuestion, isPrime };
+function gameLogic() {
+  const result = [];
+  const questionForUser = getRandomInt(1, 20);
+  result.push(String(questionForUser));
+  result.push(isPrime(questionForUser));
+
+  return result;
+}
+
+export { gameRules, gameLogic };

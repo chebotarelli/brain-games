@@ -4,24 +4,27 @@ function gameRules() {
   console.log('Find the greatest common divisor of given numbers.');
 }
 
-function userQuestion() {
+function letGCD(nOne, nTwo) {
+  if (nTwo) {
+    return letGCD(nTwo, nOne % nTwo);
+  }
+  return Math.abs(nOne);
+}
+
+function gameLogic() {
+  const result = [];
+
   const numOne = getRandomInt(1, 10);
   const numTwo = getRandomInt(1, 10);
-  const userQuestionResult = `${numOne} ${numTwo}`;
-  return userQuestionResult;
+  const questionForUser = `${numOne} ${numTwo}`;
+  result.push(String(questionForUser));
+
+  const questionArray = questionForUser.split(' ');
+  const nOne = Number(questionArray[0]);
+  const nTwo = Number(questionArray[1]);
+
+  result.push(String(letGCD(nOne, nTwo)));
+  return result;
 }
 
-function isGCD(userQuestionResult) {
-  const questionArray = userQuestionResult.split(' ');
-  let numOne = Number(questionArray[0]);
-  let numTwo = Number(questionArray[1]);
-
-  while (numTwo) {
-    const divider = numTwo;
-    numTwo = numOne % numTwo;
-    numOne = divider;
-  }
-  return String(numOne);
-}
-
-export { gameRules, userQuestion, isGCD };
+export { gameRules, gameLogic };
