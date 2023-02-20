@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 function gameRules() {
   console.log('Find the greatest common divisor of given numbers.');
@@ -14,8 +14,8 @@ function letGCD(nOne, nTwo) {
 function gameLogic() {
   const result = [];
 
-  const numOne = getRandomInt(1, 10);
-  const numTwo = getRandomInt(1, 10);
+  const numOne = getRandomNumber(1, 10);
+  const numTwo = getRandomNumber(1, 10);
   const questionForUser = `${numOne} ${numTwo}`;
   result.push(String(questionForUser));
 

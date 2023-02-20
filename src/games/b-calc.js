@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 function gameRules() {
   console.log('What is the result of the expression?');
@@ -28,9 +28,9 @@ function calculate(questionForUser) {
 
 function gameLogic() {
   const result = [];
-  const operandOne = getRandomInt(1, 10);
-  const operandTwo = getRandomInt(1, 10);
-  const operatorNum = getRandomInt(0, 3);
+  const operandOne = getRandomNumber(1, 10);
+  const operandTwo = getRandomNumber(1, 10);
+  const operatorNum = getRandomNumber(0, 3);
   const operatorArray = ['*', '+', '-'];
   const usOperator = operatorArray[operatorNum];
   const questionForUser = `${operandOne} ${usOperator} ${operandTwo}`;

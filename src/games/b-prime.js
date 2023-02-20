@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 function gameRules() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -16,7 +16,7 @@ function isPrime(userQuestionResult) {
 
 function gameLogic() {
   const result = [];
-  const questionForUser = getRandomInt(1, 20);
+  const questionForUser = getRandomNumber(1, 20);
   result.push(String(questionForUser));
   result.push(isPrime(questionForUser));
 

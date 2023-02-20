@@ -1,4 +1,4 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 function gameRules() {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -6,7 +6,7 @@ function gameRules() {
 
 function gameLogic() {
   const result = [];
-  const questionForUser = getRandomInt(1, 20);
+  const questionForUser = getRandomNumber(1, 20);
   result.push(String(questionForUser));
 
   const trueAnswer = questionForUser % 2 === 0 ? 'yes' : 'no';
