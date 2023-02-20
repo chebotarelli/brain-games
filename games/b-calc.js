@@ -4,16 +4,7 @@ function gameRules() {
   console.log('What is the result of the expression?');
 }
 
-function gameLogic() {
-  const result = [];
-  const operandOne = getRandomInt(1, 10);
-  const operandTwo = getRandomInt(1, 10);
-  const operatorNum = getRandomInt(0, 3);
-  const operatorArray = ['*', '+', '-'];
-  const usOperator = operatorArray[operatorNum];
-  const questionForUser = `${operandOne} ${usOperator} ${operandTwo}`;
-  result.push(String(questionForUser));
-
+function calculate(questionForUser) {
   const questionArray = questionForUser.split(' ');
   const operOne = Number(questionArray[0]);
   const operator = questionArray[1];
@@ -32,7 +23,19 @@ function gameLogic() {
     default:
       trueAnswer = null;
   }
-  result.push(String(trueAnswer));
+  return trueAnswer;
+}
+
+function gameLogic() {
+  const result = [];
+  const operandOne = getRandomInt(1, 10);
+  const operandTwo = getRandomInt(1, 10);
+  const operatorNum = getRandomInt(0, 3);
+  const operatorArray = ['*', '+', '-'];
+  const usOperator = operatorArray[operatorNum];
+  const questionForUser = `${operandOne} ${usOperator} ${operandTwo}`;
+  result.push(String(questionForUser));
+  result.push(String(calculate(questionForUser)));
   return result;
 }
 
