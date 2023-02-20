@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
 
-// greeting and acquaintance with the player
 function hUser() {
   console.log('brain-games');
   console.log('Welcome to the Brain Games!');
