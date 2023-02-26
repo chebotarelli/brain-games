@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { gameLogic, gameRules } from '../src/games/b-gcd.js';
-import engine from '../src/index.js';
+import runGame from '../src/games/b-gcd.js';
 
-console.log(engine(gameRules, gameLogic));
+runGame();

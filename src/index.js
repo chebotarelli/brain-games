@@ -1,26 +1,28 @@
 import readlineSync from 'readline-sync';
-import helloUser from './hello.js';
 
-const engine = (gameRules, gameLogic) => {
+function runEngine(gameRules, gameLogic) {
   let result;
-  const name = helloUser();
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
 
-  gameRules();
+  console.log(gameRules);
+  const numberOfRounds = 3;
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const [question, trueAnswer] = gameLogic();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (trueAnswer !== userAnswer) {
-      result = `${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${name}!`;
-      break;
-    } else {
+    if (trueAnswer === userAnswer) {
       console.log('Correct!');
       result = `Congratulations, ${name}!`;
+    } else {
+      result = `${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.\nLet's try again, ${name}!`;
+      break;
     }
   }
   return result;
-};
+}
 
-export default engine;
+export default runEngine;

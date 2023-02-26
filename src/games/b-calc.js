@@ -1,8 +1,7 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-function gameRules() {
-  console.log('What is the result of the expression?');
-}
+const gameRules = 'What is the result of the expression?';
 
 function calculate(questionForUser) {
   const questionArray = questionForUser.split(' ');
@@ -13,13 +12,13 @@ function calculate(questionForUser) {
   switch (operator) {
     case '+':
       trueAnswer = operOne + operTwo;
-      break;
+      return trueAnswer;
     case '-':
       trueAnswer = operOne - operTwo;
-      break;
+      return trueAnswer;
     case '*':
       trueAnswer = operOne * operTwo;
-      break;
+      return trueAnswer;
     default:
       trueAnswer = null;
   }
@@ -30,13 +29,17 @@ function gameLogic() {
   const result = [];
   const operandOne = getRandomNumber(1, 10);
   const operandTwo = getRandomNumber(1, 10);
-  const operatorNum = getRandomNumber(0, 3);
-  const operatorArray = ['*', '+', '-'];
-  const usOperator = operatorArray[operatorNum];
-  const questionForUser = `${operandOne} ${usOperator} ${operandTwo}`;
+  const operatorIndex = getRandomNumber(0, 3);
+  const operators = ['*', '+', '-'];
+  const operator = operators[operatorIndex];
+  const questionForUser = `${operandOne} ${operator} ${operandTwo}`;
   result.push(String(questionForUser));
   result.push(String(calculate(questionForUser)));
   return result;
 }
 
-export { gameRules, gameLogic };
+function runGame() {
+  console.log(runEngine(gameRules, gameLogic));
+}
+
+export default runGame;

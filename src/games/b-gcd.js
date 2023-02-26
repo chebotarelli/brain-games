@@ -1,8 +1,7 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-function gameRules() {
-  console.log('Find the greatest common divisor of given numbers.');
-}
+const gameRules = 'Find the greatest common divisor of given numbers.';
 
 function letGCD(nOne, nTwo) {
   if (nTwo) {
@@ -27,4 +26,8 @@ function gameLogic() {
   return result;
 }
 
-export { gameRules, gameLogic };
+function runGame() {
+  console.log(runEngine(gameRules, gameLogic));
+}
+
+export default runGame;

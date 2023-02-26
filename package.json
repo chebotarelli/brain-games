@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "The first Hexlet training project. Five console arithmetic and logic games on Node.js. [![Actions Status](https://github.com/chebotarelli/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/chebotarelli/frontend-project-44/actions)",
+  "description": "The first Hexlet training project. Five console arithmetic and logic games on Node.js.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

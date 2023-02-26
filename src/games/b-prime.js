@@ -1,8 +1,7 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-function gameRules() {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-}
+const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(userQuestionResult) {
   if (userQuestionResult <= 1) return 'no';
@@ -23,4 +22,8 @@ function gameLogic() {
   return result;
 }
 
-export { gameRules, gameLogic };
+function runGame() {
+  console.log(runEngine(gameRules, gameLogic));
+}
+
+export default runGame;

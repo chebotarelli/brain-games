@@ -1,8 +1,7 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-function gameRules() {
-  console.log('What number is missing in the progression?');
-}
+const gameRules = 'What number is missing in the progression?';
 
 function gameLogic() {
   const result = [];
@@ -25,4 +24,8 @@ function gameLogic() {
   return result;
 }
 
-export { gameRules, gameLogic };
+function runGame() {
+  console.log(runEngine(gameRules, gameLogic));
+}
+
+export default runGame;

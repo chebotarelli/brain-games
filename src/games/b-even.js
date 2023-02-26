@@ -1,17 +1,23 @@
 import getRandomNumber from '../getRandomNumber.js';
+import runEngine from '../index.js';
 
-function gameRules() {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function isEven(questionForUser) {
+  const trueAnswer = questionForUser % 2 === 0 ? 'yes' : 'no';
+  return trueAnswer;
 }
 
 function gameLogic() {
   const result = [];
   const questionForUser = getRandomNumber(1, 20);
   result.push(String(questionForUser));
-
-  const trueAnswer = questionForUser % 2 === 0 ? 'yes' : 'no';
-  result.push(String(trueAnswer));
+  result.push(String(isEven(questionForUser)));
   return result;
 }
 
-export { gameRules, gameLogic };
+function runGame() {
+  console.log(runEngine(gameRules, gameLogic));
+}
+
+export default runGame;
