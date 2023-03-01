@@ -3,18 +3,18 @@ import runEngine from '../index.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
 
-function letGCD(nOne, nTwo) {
+const letGCD = (nOne, nTwo) => {
   if (nTwo) {
     return letGCD(nTwo, nOne % nTwo);
   }
   return Math.abs(nOne);
-}
+};
 
-function gameLogic() {
+const gameLogic = () => {
   const result = [];
 
-  const numOne = getRandomNumber(1, 10);
-  const numTwo = getRandomNumber(1, 10);
+  const numOne = getRandomNumber();
+  const numTwo = getRandomNumber();
   const questionForUser = `${numOne} ${numTwo}`;
   result.push(String(questionForUser));
 
@@ -24,10 +24,10 @@ function gameLogic() {
 
   result.push(String(letGCD(nOne, nTwo)));
   return result;
-}
+};
 
-function runGame() {
-  console.log(runEngine(gameRules, gameLogic));
-}
+const runGame = () => {
+  runEngine(gameRules, gameLogic);
+};
 
 export default runGame;
