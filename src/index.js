@@ -7,7 +7,7 @@ const runEngine = (gameRules, gameLogic) => {
 
   console.log(gameRules);
   const numberOfRounds = 3;
-  let successfulRounds;
+  // let successfulRounds = 0;
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const [question, trueAnswer] = gameLogic();
@@ -16,18 +16,13 @@ const runEngine = (gameRules, gameLogic) => {
 
     if (trueAnswer === userAnswer) {
       console.log('Correct!');
-      successfulRounds += 1;
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${trueAnswer}.`);
-      break;
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${trueAnswer}". \nLet's try again, ${name}!`);
+      return;
     }
   }
 
-  if (successfulRounds === numberOfRounds) {
-    console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`Let's try again, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default runEngine;

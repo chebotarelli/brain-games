@@ -9,10 +9,9 @@ const isEven = (questionForUser) => {
 };
 
 const gameLogic = () => {
-  const result = [];
   const questionForUser = getRandomNumber();
-  result.push(String(questionForUser));
-  result.push(String(isEven(questionForUser)));
+  const result = [questionForUser];
+  result[1] = String(isEven(questionForUser));
   return result;
 };
 

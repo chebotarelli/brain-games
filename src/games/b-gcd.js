@@ -11,18 +11,11 @@ const letGCD = (nOne, nTwo) => {
 };
 
 const gameLogic = () => {
-  const result = [];
-
   const numOne = getRandomNumber();
   const numTwo = getRandomNumber();
   const questionForUser = `${numOne} ${numTwo}`;
-  result.push(String(questionForUser));
-
-  const questionArray = questionForUser.split(' ');
-  const nOne = Number(questionArray[0]);
-  const nTwo = Number(questionArray[1]);
-
-  result.push(String(letGCD(nOne, nTwo)));
+  const result = [questionForUser];
+  result[1] = String(letGCD(numOne, numTwo));
   return result;
 };
 
