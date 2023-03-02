@@ -3,15 +3,12 @@ import runEngine from '../index.js';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (questionForUser) => {
-  const trueAnswer = questionForUser % 2 === 0 ? 'yes' : 'no';
-  return trueAnswer;
-};
+const isEven = (questionForUser) => questionForUser % 2 === 0;
 
 const gameLogic = () => {
   const questionForUser = getRandomNumber();
   const result = [questionForUser];
-  result[1] = String(isEven(questionForUser));
+  result[1] = isEven(questionForUser) === true ? 'yes' : 'no';
   return result;
 };
 

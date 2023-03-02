@@ -3,22 +3,17 @@ import runEngine from '../index.js';
 
 const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (userQuestionResult) => {
-  if (userQuestionResult <= 1) return 'no';
-  if (userQuestionResult % 2 === 0 && userQuestionResult > 2) return 'no';
-  const s = Math.sqrt(userQuestionResult);
-  for (let i = 3; i <= s; i += 2) {
-    if (userQuestionResult % i === 0) return 'no';
+const isPrime = (questionForUser) => {
+  for (let i = 2, s = Math.sqrt(questionForUser); i <= s; i += 1) {
+    if (questionForUser % i === 0) return false;
   }
-  return 'yes';
+  return questionForUser > 1;
 };
 
 const gameLogic = () => {
-  const result = [];
   const questionForUser = getRandomNumber();
-  result.push(String(questionForUser));
-  result.push(isPrime(questionForUser));
-
+  const result = [questionForUser];
+  result[1] = isPrime(questionForUser) === true ? 'yes' : 'no';
   return result;
 };
 

@@ -3,19 +3,23 @@ import runEngine from '../index.js';
 
 const gameRules = 'What number is missing in the progression?';
 
+const getProgression = (startNumber, stepProgression) => {
+  const progression = [];
+  let start = startNumber;
+  for (let i = 0; i < 10; i += 1) {
+    progression.push(start);
+    start += stepProgression;
+  }
+  return progression;
+};
+
 const gameLogic = () => {
   const result = [];
-  const progression = [];
-
-  let startNum = getRandomNumber();
-  const stepArr = getRandomNumber(2, 5);
+  const startNumber = getRandomNumber();
+  const stepProgression = getRandomNumber(2, 5);
   const questNum = getRandomNumber(2, 9);
 
-  for (let i = 0; i < 10; i += 1) {
-    progression.push(startNum);
-    startNum += stepArr;
-  }
-
+  const progression = getProgression(startNumber, stepProgression);
   const trueAnswer = progression[questNum];
   progression[questNum] = '..';
 
