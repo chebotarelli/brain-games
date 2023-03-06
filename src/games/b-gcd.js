@@ -14,13 +14,12 @@ const gameLogic = () => {
   const numOne = getRandomNumber();
   const numTwo = getRandomNumber();
   const questionForUser = `${numOne} ${numTwo}`;
+  const calculationResult = String(letGCD(numOne, numTwo));
   const result = [questionForUser];
-  result[1] = String(letGCD(numOne, numTwo));
+  result[1] = calculationResult;
   return result;
 };
 
-const runGame = () => {
+export default () => {
   runEngine(gameRules, gameLogic);
 };
-
-export default runGame;

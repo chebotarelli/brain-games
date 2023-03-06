@@ -7,13 +7,12 @@ const isEven = (questionForUser) => questionForUser % 2 === 0;
 
 const gameLogic = () => {
   const questionForUser = getRandomNumber();
+  const calculationResult = isEven(questionForUser) === true ? 'yes' : 'no';
   const result = [questionForUser];
-  result[1] = isEven(questionForUser) === true ? 'yes' : 'no';
+  result[1] = calculationResult;
   return result;
 };
 
-const runGame = () => {
+export default () => {
   runEngine(gameRules, gameLogic);
 };
-
-export default runGame;

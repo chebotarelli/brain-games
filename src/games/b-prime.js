@@ -12,13 +12,12 @@ const isPrime = (questionForUser) => {
 
 const gameLogic = () => {
   const questionForUser = getRandomNumber();
+  const calculationResult = isPrime(questionForUser) === true ? 'yes' : 'no';
   const result = [questionForUser];
-  result[1] = isPrime(questionForUser) === true ? 'yes' : 'no';
+  result[1] = calculationResult;
   return result;
 };
 
-const runGame = () => {
+export default () => {
   runEngine(gameRules, gameLogic);
 };
-
-export default runGame;

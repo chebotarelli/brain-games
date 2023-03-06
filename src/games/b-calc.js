@@ -28,13 +28,12 @@ const gameLogic = () => {
   const operators = ['*', '+', '-'];
   const operator = operators[operatorIndex];
   const questionForUser = `${operandOne} ${operator} ${operandTwo}`;
+  const calculationResult = String(calculate(operandOne, operator, operandTwo));
   const result = [questionForUser];
-  result[1] = String(calculate(operandOne, operator, operandTwo));
+  result[1] = calculationResult;
   return result;
 };
 
-const runGame = () => {
+export default () => {
   runEngine(gameRules, gameLogic);
 };
-
-export default runGame;

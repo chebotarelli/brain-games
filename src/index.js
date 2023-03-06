@@ -7,7 +7,6 @@ const runEngine = (gameRules, gameLogic) => {
 
   console.log(gameRules);
   const numberOfRounds = 3;
-  // let successfulRounds = 0;
 
   for (let i = 0; i < numberOfRounds; i += 1) {
     const [question, trueAnswer] = gameLogic();
