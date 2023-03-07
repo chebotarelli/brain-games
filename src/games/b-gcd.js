@@ -15,9 +15,7 @@ const gameLogic = () => {
   const numTwo = getRandomNumber();
   const questionForUser = `${numOne} ${numTwo}`;
   const calculationResult = String(letGCD(numOne, numTwo));
-  const result = [questionForUser];
-  result[1] = calculationResult;
-  return result;
+  return [questionForUser, calculationResult];
 };
 
 export default () => {

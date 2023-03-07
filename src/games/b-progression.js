@@ -24,8 +24,7 @@ const gameLogic = () => {
   progression[questNum] = '..';
 
   const questionForUser = String(progression.join(' '));
-  const result = [questionForUser, String(calculationResult)];
-  return result;
+  return [questionForUser, String(calculationResult)];
 };
 
 export default () => {

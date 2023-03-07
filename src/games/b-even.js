@@ -8,9 +8,7 @@ const isEven = (questionForUser) => questionForUser % 2 === 0;
 const gameLogic = () => {
   const questionForUser = getRandomNumber();
   const calculationResult = isEven(questionForUser) === true ? 'yes' : 'no';
-  const result = [questionForUser];
-  result[1] = calculationResult;
-  return result;
+  return [questionForUser, calculationResult];
 };
 
 export default () => {

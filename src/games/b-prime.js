@@ -13,9 +13,7 @@ const isPrime = (questionForUser) => {
 const gameLogic = () => {
   const questionForUser = getRandomNumber();
   const calculationResult = isPrime(questionForUser) === true ? 'yes' : 'no';
-  const result = [questionForUser];
-  result[1] = calculationResult;
-  return result;
+  return [questionForUser, calculationResult];
 };
 
 export default () => {

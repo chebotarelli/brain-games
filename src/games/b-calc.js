@@ -29,9 +29,7 @@ const gameLogic = () => {
   const operator = operators[operatorIndex];
   const questionForUser = `${operandOne} ${operator} ${operandTwo}`;
   const calculationResult = String(calculate(operandOne, operator, operandTwo));
-  const result = [questionForUser];
-  result[1] = calculationResult;
-  return result;
+  return [questionForUser, calculationResult];
 };
 
 export default () => {
