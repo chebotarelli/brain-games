@@ -3,9 +3,8 @@ import runEngine from '../index.js';
 
 const gameRules = 'What number is missing in the progression?';
 
-const getProgression = (startNumber, stepProgression) => {
+const getProgression = (startNumber, stepProgression, lengthProgression) => {
   const progression = [];
-  const lengthProgression = 10;
   let start = startNumber;
   for (let i = 0; i < lengthProgression; i += 1) {
     progression.push(start);
@@ -18,14 +17,14 @@ const gameLogic = () => {
   const startNumber = getRandomNumber();
   const stepProgression = getRandomNumber(2, 5);
   const questNum = getRandomNumber(2, 9);
+  const lengthProgression = 10;
 
-  const progression = getProgression(startNumber, stepProgression);
+  const progression = getProgression(startNumber, stepProgression, lengthProgression);
   const calculationResult = progression[questNum];
   progression[questNum] = '..';
 
   const questionForUser = String(progression.join(' '));
-  const result = [questionForUser];
-  result[1] = String(calculationResult);
+  const result = [questionForUser, String(calculationResult)];
   return result;
 };
 
